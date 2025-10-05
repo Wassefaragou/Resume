@@ -3,198 +3,603 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wassef Aragou - Resume</title>
+  <title>Wassef Aragou - Portfolio</title>
   <link rel="icon" href="./image/favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      background: #0a0a0f;
       color: #fff;
       line-height: 1.6;
-      scroll-behavior: smooth;
-      animation: fadeIn 2s ease-in;
+      overflow-x: hidden;
     }
+
+    /* Animated background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    }
+
+    .bg-animation::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(76, 201, 240, 0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: moveBackground 20s linear infinite;
+    }
+
+    @keyframes moveBackground {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+
+    /* Floating particles */
+    .particle {
+      position: fixed;
+      background: rgba(76, 201, 240, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float 10s infinite;
+      z-index: -1;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+    }
+
+    /* Header */
     header {
-      background: #2f2f49;
-      padding: 0.5rem 1rem;
-      text-align: center;
+      background: rgba(15, 15, 25, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
       position: sticky;
       top: 0;
       z-index: 999;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 30px rgba(76, 201, 240, 0.2);
+      border-bottom: 1px solid rgba(76, 201, 240, 0.3);
     }
-    header h1 {
-      font-size: 2rem;
-      margin: 0;
-      animation: fadeInDown 1s ease-out;
-    }
-    header p, header a {
-      color: #ccc;
-      font-size: 1rem;
-    }
-    .social-icons {
-      margin-top: 1rem;
-    }
-    .social-icons a {
-      margin: 0 0.5rem;
-      color: #4cc9f0;
-      font-size: 1.8rem;
-      transition: transform 0.3s, color 0.3s;
-    }
-    .social-icons a:hover {
-      transform: scale(1.2);
-      color: #ffffff;
-    }
-    section {
-      padding: 2rem;
-      max-width: 1000px;
+
+    .header-content {
+      max-width: 1200px;
       margin: auto;
-      animation: fadeInUp 1.5s ease-in-out;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
-    h2 {
-      border-left: 4px solid #4cc9f0;
-      padding-left: 12px;
-      margin-bottom: 1rem;
-      color: #4cc9f0;
+
+    .logo h1 {
       font-size: 1.8rem;
+      background: linear-gradient(135deg, #4cc9f0, #7209b7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: glow 2s ease-in-out infinite;
     }
-    .card {
-      background: rgba(255, 255, 255, 0.08);
-      padding: 1.5rem;
-      border-radius: 12px;
+
+    @keyframes glow {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(76, 201, 240, 0.5)); }
+      50% { filter: drop-shadow(0 0 20px rgba(76, 201, 240, 0.8)); }
+    }
+
+    nav a {
+      color: #ccc;
+      margin: 0 1rem;
+      text-decoration: none;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #4cc9f0;
+      transition: width 0.3s;
+    }
+
+    nav a:hover {
+      color: #4cc9f0;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #4cc9f0, #f72585, #7209b7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: #bbb;
       margin-bottom: 2rem;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s;
     }
-    .strong {
-      color: #000000;
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
     }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #4cc9f0;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .social-icons a {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(76, 201, 240, 0.1);
+      border: 2px solid #4cc9f0;
+      border-radius: 50%;
+      color: #4cc9f0;
+      font-size: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      background: #4cc9f0;
+      color: #0a0a0f;
+      transform: translateY(-5px) rotate(360deg);
+      box-shadow: 0 10px 30px rgba(76, 201, 240, 0.5);
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      position: relative;
+      color: #4cc9f0;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #4cc9f0, transparent);
+    }
+
+    /* Cards */
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(76, 201, 240, 0.2);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(76, 201, 240, 0.1), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-10px);
+      border-color: #4cc9f0;
+      box-shadow: 0 20px 60px rgba(76, 201, 240, 0.3);
     }
-    a {
+
+    .card strong {
+      color: #4cc9f0;
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-date {
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1.5rem;
+      background: rgba(76, 201, 240, 0.1);
+      border: 1px solid #4cc9f0;
+      border-radius: 25px;
       color: #4cc9f0;
       text-decoration: none;
+      transition: all 0.3s;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .card a:hover {
+      background: #4cc9f0;
+      color: #0a0a0f;
+      transform: scale(1.05);
     }
+
+    /* Grid Layout for Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Skills Section */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid rgba(76, 201, 240, 0.2);
+      transition: all 0.3s;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-5px);
+      border-color: #4cc9f0;
+    }
+
+    .skill-category h3 {
+      color: #4cc9f0;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: rgba(76, 201, 240, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(76, 201, 240, 0.3);
+      transition: all 0.3s;
+    }
+
+    .skill-tag:hover {
+      background: rgba(76, 201, 240, 0.2);
+      transform: scale(1.05);
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 1rem;
-      background: #2f2f49;
-      color: #aaa;
-      font-size: 0.9rem;
+      padding: 2rem;
+      background: rgba(15, 15, 25, 0.95);
+      border-top: 1px solid rgba(76, 201, 240, 0.3);
       margin-top: 3rem;
     }
-    @media (max-width: 768px) {
-      header h1 { font-size: 1.5rem; }
-      section { padding: 1.5rem; }
-      .card { padding: 1rem; }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+
+    /* Animations */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      h2 { font-size: 2rem; }
+      nav { width: 100%; text-align: center; }
+      .header-content { justify-content: center; }
     }
   </style>
 </head>
 <body>
+  <div class="bg-animation"></div>
+
   <header>
-    <h1>Wassef Aragou</h1>
-    <p>Engineering Student <span style="color:#0cc6ff;">•</span> AI & Data Science Enthusiast  <span style="color:#0cc6ff;">|</span>  Agdal, Rabat <span style="color:#0cc6ff;">•</span> <a href="mailto:aragou.wassef@gmail.com">aragou.wassef@gmail.com</a> <span style="color:#0cc6ff;">•</span> +212 689212747</p>
-    <div class="social-icons">
-      <a href="https://linkedin.com/in/wassef-aragou-7569a9270" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/Wassefaragou" target="_blank"><i class="fab fa-github"></i></a>
+    <div class="header-content">
+      <div class="logo">
+        <h1>W. Aragou</h1>
+      </div>
+      <nav>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+      </nav>
     </div>
   </header>
 
-  <section>
-    <h2>EDUCATION</h2>
-    <div class="card">
-      <strong>Mohammadia School of Engineers</strong> (2023 - Present)<br>
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Wassef Aragou</h1>
+      <p>Engineering Student • AI & Data Science Enthusiast</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Agdal, Rabat</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:aragou.wassef@gmail.com" style="color: #4cc9f0;">aragou.wassef@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+212 689212747</span>
+        </div>
+      </div>
+      <div class="social-icons">
+        <a href="https://linkedin.com/in/wassef-aragou-7569a9270" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Wassefaragou" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card fade-in">
+      <strong>Mohammadia School of Engineers</strong>
+      <div class="card-date">2023 - Present</div>
       Engineering Degree in Modeling and Scientific Computing (MIS), Rabat
     </div>
-    <div class="card">
-      <strong>Preparatory Classes for Engineering Schools</strong> (2021 - 2023)<br>
+    <div class="card fade-in">
+      <strong>Preparatory Classes for Engineering Schools</strong>
+      <div class="card-date">2021 - 2023</div>
       Industrial Science and Technologies, Safi
     </div>
-    <div class="card">
-      <strong>Baccalaureate</strong> (2020 - 2021)<br>
+    <div class="card fade-in">
+      <strong>Baccalaureate</strong>
+      <div class="card-date">2020 - 2021</div>
       Electrical Science and Technologies, Marrakech
     </div>
   </section>
 
-  <section>
-    <h2>PROFESSIONAL EXPERIENCE (INTERNSHIPS)</h2>
-    <div class="card">
-      <strong>OCP GROUP - Jorf Lasfar</strong> (August 2024 - 1 month)<br>
-      Development of a neural network model to predict sulfur dioxide emissions during sulfuric acid production, with an optimization goal to minimize these emissions. Creation of an interactive Streamlit interface to visualize predictions and analyses in real time, facilitating industrial decision-making.
-      <br><a href="https://github.com/Wassefaragou/Stage_ocp_pfa" target="_blank">[Project Repo]</a>
+  <section id="experience">
+    <h2>Professional Experience</h2>
+    <div class="card fade-in">
+      <strong>High Commission for Planning - Rabat</strong>
+      <div class="card-date">June – August 2025 · 3 months</div>
+      Application of unsupervised learning models to analyze national employment surveys, and development of a chatbot to provide responses derived from these analyses.
+      <a href="https://github.com/Wassefaragou/PFA_HCP" target="_blank"><i class="fab fa-github"></i> View Project</a>
     </div>
-    <div class="card">
-      <strong>High Commission for Planning - Rabat</strong> (July 2024 - 1 month)<br>
-      Utilization of real-world data provided by the HIGH COMMISSION FOR PLANNING to predict employment status (employed or unemployed) using machine learning models: logistic regression, random forest, and neural network. Comparative performance analysis and model interpretation were conducted to identify the most influential socio-economic and demographic factors affecting youth unemployment.
-      <br><a href="https://github.com/Wassefaragou/Stage_hcp" target="_blank">[Project Repo]</a>
+    <div class="card fade-in">
+      <strong>OCP GROUP - Jorf Lasfar</strong>
+      <div class="card-date">August – September 2024 · 2 months</div>
+      Design of a neural network model to predict and control SO₂ emissions during sulfuric acid production. Development of a Streamlit interface for real-time visualization.
+      <a href="https://github.com/Wassefaragou/Stage_ocp_pfa" target="_blank"><i class="fab fa-github"></i> View Project</a>
+    </div>
+    <div class="card fade-in">
+      <strong>High Commission for Planning - Rabat</strong>
+      <div class="card-date">June – July 2024 · 2 months</div>
+      Prediction of youth employment status and unemployment analysis using logistic regression, random forests, and neural networks.
+      <a href="https://github.com/Wassefaragou/Stage_hcp" target="_blank"><i class="fab fa-github"></i> View Project</a>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Academic Projects</h2>
+    <div class="projects-grid">
+      <div class="card fade-in">
+        <strong>Fantasy Premier League RAG Assistant</strong>
+        <p>Development of a Retrieval-Augmented Generation (RAG) system integrating real-time FPL stats with GPT-based models to deliver expert-level recommendations.</p>
+        <a href="https://github.com/Wassefaragou/fpl_rag_project" target="_blank"><i class="fab fa-github"></i> View Project</a>
+      </div>
+      <div class="card fade-in">
+        <strong>AI Image Compression & Completion</strong>
+        <p>Built with convolutional autoencoders for efficient image compression (.npz format) and accurate reconstruction, including an interface for implementation.</p>
+        <a href="https://github.com/Wassefaragou/image_compressor" target="_blank"><i class="fab fa-github"></i> View Project</a>
+      </div>
+      <div class="card fade-in">
+        <strong>Cancer Prediction Application</strong>
+        <p>Created a breast cancer prediction application using Random Forest (regression & classification) and Elastic Net for risk assessment, staging, and treatment cost forecasting.</p>
+        <a href="https://github.com/Wassefaragou/Breast_cancer_prediction" target="_blank"><i class="fab fa-github"></i> View Project</a>
+      </div>
+      <div class="card fade-in">
+        <strong>SARIMA vs Facebook Prophet</strong>
+        <p>Google search trends analysis ("Football") comparing time series forecasting models.</p>
+        <a href="https://github.com/Wassefaragou/Sarima-v-Prophet" target="_blank"><i class="fab fa-github"></i> View Project</a>
+      </div>
     </div>
   </section>
 
   <section>
-    <h2>ACADEMIC PROJECTS</h2>
-    <div class="card">
-      <strong>Fantasy Premier League (FPL) RAG Assistant</strong><br>
-      Built an LLM-powered Retrieval-Augmented Generation (RAG) system that connects real-time FPL player stats with GPT models (3.5, 4, 4o) to offer personalized, expert-level advice.
-      <br><a href="https://github.com/Wassefaragou/fpl_rag_project" target="_blank">[Project Repo]</a>
-    </div>
-    <div class="card">
-      <strong>AI Solution for Image Compression and Completion</strong><br>
-      Developed an advanced AI solution combining autoencoders and transformer architectures for effective image compression and accurate reconstruction of missing or corrupted image regions.
-      <br><a href="https://github.com/Wassefaragou/image_compressor" target="_blank">[Project Repo]</a>
-    </div>
-    <div class="card">
-      <strong>Breast Cancer Prediction Application</strong><br>
-      Development of a breast cancer prediction application based on machine learning, enabling the estimation of risk, cancer stage, and treatment costs.
-      <br><a href="https://github.com/Wassefaragou/Breast_cancer_prediction" target="_blank">[Project Repo]</a>
-    </div>
-    <div class="card">
-      <strong>SARIMA vs Facebook Prophet Forecasting</strong><br>
-      Google search trends analysis ("Football").
-      <br><a href="https://github.com/Wassefaragou/Sarima-v-Prophet" target="_blank">[Project Repo]</a>
+    <h2>Certificates</h2>
+    <div class="card fade-in">
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <i class="fas fa-certificate" style="color: #4cc9f0; font-size: 1.5rem;"></i>
+          <span>Stanford's Machine Learning Specialization</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <i class="fas fa-certificate" style="color: #4cc9f0; font-size: 1.5rem;"></i>
+          <span>Data Analytics for Lean Six Sigma</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>CERTIFICATES</h2>
-    <div class="card">
-      • Stanford’s Machine Learning Specialization<br>
-      • DeepLearning.AI’s Deep Learning Specialization<br>
-      • Yale’s Financial Markets Certificate<br>
-      • Data Analytics for Lean Six Sigma
-    </div>
-  </section>
-
-  <section>
-    <h2>SKILLS</h2>
-    <div class="card">
-      <strong class="strong">Programming:</strong> Python • R • SQL • Java • JS • TS • C/C++ • VB.NET • VBA • CSS • HTML • LaTeX<br>
-      <strong class="strong">Tools:</strong> Git • Docker • APIs • IBM SPSS • Minitab • Power BI • Shell Unix • Excel • Access • Google Cloud<br>
-      <strong class="strong">Frameworks:</strong> TensorFlow • PyTorch • Scikit-learn • Langchain • Hugging Face • Django Flask • Streamlit • React • Next.js<br>
-      <strong class="strong">Languages:</strong> French (Professional), English (Professional), Arabic (Native)
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div class="skill-category">
+        <h3><i class="fas fa-code"></i> Programming</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">R</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">HTML</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3><i class="fas fa-tools"></i> Tools</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">n8n</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">APIs</span>
+          <span class="skill-tag">IBM SPSS</span>
+          <span class="skill-tag">Excel</span>
+          <span class="skill-tag">Access</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3><i class="fas fa-brain"></i> Frameworks</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">Langchain</span>
+          <span class="skill-tag">Hugging Face</span>
+          <span class="skill-tag">Flask</span>
+          <span class="skill-tag">Streamlit</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h3><i class="fas fa-language"></i> Languages</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">English (Professional)</span>
+          <span class="skill-tag">French (Professional)</span>
+          <span class="skill-tag">Arabic (Native)</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Wassef Aragou • All rights reserved
+    <p>&copy; 2025 Wassef Aragou • All rights reserved</p>
   </footer>
+
+  <script>
+    // Create floating particles
+    function createParticle() {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      const size = Math.random() * 5 + 2;
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+      particle.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(particle);
+      setTimeout(() => particle.remove(), 20000);
+    }
+
+    setInterval(createParticle, 300);
+
+    // Scroll animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
