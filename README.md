@@ -1,3 +1,3 @@
-# Wassef Aragou - Resume 
+# Wassef Aragou - Portfolio Website
 
-Welcome to my **Resume**! This repository contains my personal resume website, which showcases my academic background, professional experiences, projects, and skills in **AI** and **Data Science**.
+Welcome to my **Portfolio Website**! This repository contains my personal portfolio website, which showcases my academic background, professional experiences, internships, projects, certifications, and technical skills in **AI**, **Data Science**, and **Financial Markets**.
