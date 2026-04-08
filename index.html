@@ -146,10 +146,9 @@
     }
 
     .aside-card {
-      position: sticky;
-      top: 5.8rem;
       border-radius: var(--radius-xl);
       padding: 1.7rem;
+      will-change: transform;
     }
 
     .portrait {
@@ -975,6 +974,47 @@
     });
 
     document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+    const asideCard = document.querySelector(".aside-card");
+    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    if (asideCard) {
+      let currentOffset = 0;
+      let targetOffset = 0;
+      let animationFrame = null;
+
+      const applyAsideMotion = () => {
+        const allowMotion = window.innerWidth > 980 && !reducedMotionQuery.matches;
+        targetOffset = allowMotion ? Math.min(window.scrollY * 0.08, 48) : 0;
+
+        if (animationFrame !== null) {
+          return;
+        }
+
+        const animate = () => {
+          currentOffset += (targetOffset - currentOffset) * 0.14;
+          asideCard.style.transform = `translateY(${currentOffset.toFixed(2)}px)`;
+
+          if (Math.abs(targetOffset - currentOffset) > 0.1) {
+            animationFrame = window.requestAnimationFrame(animate);
+          } else {
+            currentOffset = targetOffset;
+            asideCard.style.transform = `translateY(${currentOffset.toFixed(2)}px)`;
+            animationFrame = null;
+          }
+        };
+
+        animationFrame = window.requestAnimationFrame(animate);
+      };
+
+      applyAsideMotion();
+      window.addEventListener("scroll", applyAsideMotion, { passive: true });
+      window.addEventListener("resize", applyAsideMotion);
+
+      if (typeof reducedMotionQuery.addEventListener === "function") {
+        reducedMotionQuery.addEventListener("change", applyAsideMotion);
+      }
+    }
   </script>
 </body>
 </html>
