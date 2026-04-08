@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wassef Aragou - English Resume</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #e7e2d8;
+      color: #17212b;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 14mm 15mm 12mm;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 5mm;
+    }
+
+    .name {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20pt;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      margin-top: 1.5mm;
+      font-size: 10pt;
+      color: #4c5661;
+      font-weight: 600;
+    }
+
+    .contact-line {
+      margin-top: 2mm;
+      font-size: 9pt;
+      line-height: 1.5;
+      color: #223041;
+    }
+
+    .contact-line a {
+      color: #223041;
+      text-decoration: none;
+    }
+
+    .divider {
+      height: 1px;
+      margin: 3mm 0 4mm;
+      background: #a7adb4;
+    }
+
+    .section {
+      margin-top: 3.5mm;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 3mm;
+      margin-bottom: 2.5mm;
+      font-size: 10pt;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #1b2633;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #c5cad0;
+    }
+
+    .education-item,
+    .experience-item,
+    .project-item {
+      margin-bottom: 3.5mm;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 4mm;
+    }
+
+    .school,
+    .company,
+    .project-name {
+      font-size: 10.2pt;
+      font-weight: 800;
+      color: #17212b;
+    }
+
+    .date {
+      font-size: 8.8pt;
+      font-weight: 700;
+      color: #5a6470;
+      white-space: nowrap;
+    }
+
+    .degree,
+    .role {
+      margin-top: 0.6mm;
+      font-size: 9.3pt;
+      color: #314152;
+      display: flex;
+      justify-content: space-between;
+      gap: 4mm;
+    }
+
+    .location {
+      white-space: nowrap;
+      color: #5a6470;
+      font-weight: 600;
+    }
+
+    .bullets {
+      margin: 1.4mm 0 0 0;
+      padding-left: 4.5mm;
+      font-size: 8.9pt;
+      line-height: 1.4;
+      color: #2d3a48;
+    }
+
+    .bullets li {
+      margin: 0.7mm 0;
+    }
+
+    .tech-line,
+    .skills-line {
+      margin-top: 1mm;
+      font-size: 8.7pt;
+      line-height: 1.45;
+      color: #314152;
+    }
+
+    .tech-line strong,
+    .skills-line strong {
+      color: #17212b;
+    }
+
+    .project-copy {
+      margin-top: 1.1mm;
+      font-size: 8.9pt;
+      line-height: 1.45;
+      color: #2d3a48;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5mm 8mm;
+      font-size: 9pt;
+      color: #2d3a48;
+    }
+
+    .cert-item {
+      break-inside: avoid;
+    }
+
+    .cert-item::before {
+      content: "- ";
+      color: #5a6470;
+    }
+
+    @media screen {
+      body {
+        padding: 20px 0;
+      }
+
+      .page {
+        box-shadow: 0 18px 44px rgba(17, 24, 39, 0.12);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <h1 class="name">Wassef ARAGOU</h1>
+      <div class="subtitle">Engineering Student in Modeling and Scientific Computing | Available from August 2026</div>
+      <div class="divider"></div>
+      <div class="contact-line">
+        Casablanca, Morocco &bull;
+        <a href="mailto:aragou.wassef@gmail.com">aragou.wassef@gmail.com</a> &bull;
+        <a href="tel:+212689212747">+212 689212747</a><br>
+        <a href="https://linkedin.com/in/WASSEF%20ARAGOU">linkedin.com/in/WASSEF ARAGOU</a> &bull;
+        <a href="https://github.com/wassefaragou">github.com/wassefaragou</a>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section-title">Education</div>
+
+      <div class="education-item">
+        <div class="row">
+          <div class="school">Mohammadia School of Engineers</div>
+          <div class="date">2023 - 2026</div>
+        </div>
+        <div class="degree">
+          <span>Engineering Degree in Modeling and Scientific Computing (MIS)</span>
+          <span class="location">Rabat</span>
+        </div>
+      </div>
+
+      <div class="education-item">
+        <div class="row">
+          <div class="school">Preparatory Classes for Engineering Schools</div>
+          <div class="date">2021 - 2023</div>
+        </div>
+        <div class="degree">
+          <span>Industrial Sciences and Technologies</span>
+          <span class="location">Safi</span>
+        </div>
+      </div>
+
+      <div class="education-item">
+        <div class="row">
+          <div class="school">Baccalaureate</div>
+          <div class="date">2020 - 2021</div>
+        </div>
+        <div class="degree">
+          <span>Electrical Sciences and Technologies</span>
+          <span class="location">Marrakech</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Professional Experience</div>
+
+      <div class="experience-item">
+        <div class="row">
+          <div class="company">ATTIJARIWAFA BANK - Equity &amp; Derivatives Desk (Final-Year Internship)</div>
+          <div class="date">FEB 2026 - MAY 2026</div>
+        </div>
+        <ul class="bullets">
+          <li>Designed a hedging strategy for a portfolio of MASI 20 futures contracts.</li>
+          <li>Built full and partial replication portfolios for the MASI 20, including estimates of free-float factors and capping coefficients.</li>
+          <li>Set up a valuation framework for MASI 20 futures contracts, including portfolio PnL calculation and monitoring.</li>
+          <li>Contributed to research on optimal bid and ask quote setting within a market-making framework.</li>
+        </ul>
+        <div class="tech-line"><strong>Tools:</strong> Python, Quantitative Finance, Optimization, Metaheuristics, Yield Curve</div>
+      </div>
+
+      <div class="experience-item">
+        <div class="row">
+          <div class="company">HIGH COMMISSION FOR PLANNING - Agdal, Rabat</div>
+          <div class="date"></div>
+        </div>
+
+        <div class="role">
+          <span>Data Science and Modeling Internship</span>
+          <span class="location">JUL 2025 - AUG 2025</span>
+        </div>
+        <ul class="bullets">
+          <li>Applied unsupervised learning methods to analyze national employment surveys and designed a chatbot to present the main findings interactively.</li>
+        </ul>
+        <div class="tech-line"><strong>Technologies:</strong> Python, PCA, Autoencoders, KNN, K-Means, DBSCAN, HDBSCAN, GMM, Hugging Face, LLM, Streamlit</div>
+
+        <div class="role" style="margin-top: 2mm;">
+          <span>Predictive Analytics Internship</span>
+          <span class="location">JUL 2024 - AUG 2024</span>
+        </div>
+        <ul class="bullets">
+          <li>Developed predictive models to estimate youth employment status and studied the main factors behind youth unemployment.</li>
+        </ul>
+        <div class="tech-line"><strong>Technologies:</strong> Python, Scikit-learn, Seaborn, Pandas</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Academic Project</div>
+      <div class="project-item">
+        <div class="project-name">Integrated DAX Assistant in Power BI</div>
+        <div class="project-copy">
+          Developed a conversational assistant embedded in Power BI through HTML Content, connected to an LLM using the OpenAI API to generate context-aware DAX and to query SQL Server through a FastAPI back end for automated answers to data questions.
+        </div>
+        <div class="tech-line"><strong>Technologies:</strong> Power BI, SQL Server, FastAPI, HTML/CSS/JavaScript, OpenAI API, DAX, SQL</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Certificates</div>
+      <div class="cert-grid">
+        <div class="cert-item">Machine Learning Specialization - Stanford University</div>
+        <div class="cert-item">Financial Markets - Yale University</div>
+        <div class="cert-item">Deep Learning Specialization - DeepLearning.AI</div>
+        <div class="cert-item">Data Analysis for Lean Six Sigma</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Additional Skills</div>
+      <div class="skills-line"><strong>Tools and Programming:</strong> Python, Power BI, IBM SPSS, Excel, Access, VBA, SQL Server, FastAPI, HTML/CSS/JavaScript</div>
+      <div class="skills-line"><strong>Finance:</strong> Equities, Bond Markets, Money Markets, Derivatives, Foreign Exchange, Asset Valuation, Futures, Hedging</div>
+      <div class="skills-line"><strong>Languages:</strong> English: Professional Proficiency, French: Professional Proficiency, Arabic: Native Language</div>
+    </section>
+  </main>
+</body>
+</html>
