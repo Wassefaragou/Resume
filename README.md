@@ -1,12 +1,12 @@
 # Wassef Aragou - Resume Website
 
-This repository contains the personal resume website of Wassef Aragou.
+This repository contains the static resume website of Wassef Aragou.
 
-The project includes:
+## Files
 
-- A professional English resume landing page in [index.html](/index.html)
-- The original French CV in `resume.pdf`
-- A dedicated English resume PDF source in `resume-en.html`
-- A generated English PDF resume in `resume-en.pdf`
+- `index.html` - main responsive resume website
+- `resume-en.html` - printable English resume source
+- `Cv_Wassef_Aragou.pdf` - downloadable PDF CV
+- `image/` - profile photo, favicon, and certification logos
 
-The site is designed to be deployed as a static website through GitHub Pages.
+The site can be opened directly in a browser or deployed through GitHub Pages.
