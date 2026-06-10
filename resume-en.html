@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wassef Aragou - English Resume</title>
+  <meta name="description" content="English resume of Wassef Aragou – Engineer in Modeling, Quantitative Finance, and Data Science.">
+  <title>Wassef Aragou – Resume</title>
+  <link rel="icon" href="./image/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
   <style>
     @page {
       size: A4;
@@ -12,17 +17,15 @@
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html, body {
-      margin: 0;
-      padding: 0;
-      background: #e7e2d8;
-      color: #17212b;
-      font-family: "Segoe UI", Arial, sans-serif;
-    }
-
-    body {
+      background: #e8ecf1;
+      color: #1a1f2b;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      line-height: 1.55;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
@@ -32,295 +35,421 @@
       min-height: 297mm;
       margin: 0 auto;
       background: #ffffff;
-      padding: 14mm 15mm 12mm;
+      padding: 13mm 16mm 14mm;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
     }
 
+    /* ── Header ── */
     .header {
       text-align: center;
-      margin-bottom: 5mm;
+      padding-bottom: 4.5mm;
+      border-bottom: 2px solid #0f766e;
     }
 
     .name {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 20pt;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 22pt;
       font-weight: 700;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
+      color: #111827;
     }
 
-    .subtitle {
+    .headline {
       margin-top: 1.5mm;
       font-size: 10pt;
-      color: #4c5661;
       font-weight: 600;
+      color: #0f766e;
+      letter-spacing: 0.01em;
     }
 
-    .contact-line {
-      margin-top: 2mm;
-      font-size: 9pt;
-      line-height: 1.5;
-      color: #223041;
+    .contact-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5mm 5mm;
+      margin-top: 3mm;
+      font-size: 8.5pt;
+      color: #374151;
     }
 
-    .contact-line a {
-      color: #223041;
+    .contact-bar a {
+      color: #374151;
       text-decoration: none;
     }
 
-    .divider {
-      height: 1px;
-      margin: 3mm 0 4mm;
-      background: #a7adb4;
+    .contact-bar a:hover {
+      color: #0f766e;
     }
 
+    .contact-bar .sep {
+      color: #9ca3af;
+    }
+
+    /* ── Sections ── */
     .section {
-      margin-top: 3.5mm;
+      margin-top: 4mm;
     }
 
     .section-title {
       display: flex;
       align-items: center;
       gap: 3mm;
-      margin-bottom: 2.5mm;
-      font-size: 10pt;
+      font-size: 9pt;
       font-weight: 800;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #1b2633;
+      color: #0f766e;
+      margin-bottom: 2.5mm;
     }
 
     .section-title::after {
       content: "";
       flex: 1;
       height: 1px;
-      background: #c5cad0;
+      background: linear-gradient(90deg, #d1d5db, transparent);
     }
 
-    .education-item,
-    .experience-item,
-    .project-item {
-      margin-bottom: 3.5mm;
+    /* ── Entries ── */
+    .entry {
+      margin-bottom: 3mm;
     }
 
-    .row {
+    .entry-row {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       gap: 4mm;
     }
 
-    .school,
-    .company,
-    .project-name {
-      font-size: 10.2pt;
+    .entry-org {
+      font-size: 10pt;
       font-weight: 800;
-      color: #17212b;
+      color: #111827;
     }
 
-    .date {
-      font-size: 8.8pt;
+    .entry-date {
+      font-size: 8.5pt;
       font-weight: 700;
-      color: #5a6470;
+      color: #6b7280;
       white-space: nowrap;
     }
 
-    .degree,
-    .role {
-      margin-top: 0.6mm;
-      font-size: 9.3pt;
-      color: #314152;
+    .entry-role {
       display: flex;
       justify-content: space-between;
+      align-items: baseline;
       gap: 4mm;
-    }
-
-    .location {
-      white-space: nowrap;
-      color: #5a6470;
+      margin-top: 0.5mm;
+      font-size: 9pt;
+      color: #374151;
       font-weight: 600;
     }
 
+    .entry-location {
+      font-size: 8.5pt;
+      color: #6b7280;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .entry-subtitle {
+      margin-top: 0.5mm;
+      font-size: 9pt;
+      color: #374151;
+      font-style: italic;
+    }
+
+    /* ── Bullet lists ── */
     .bullets {
-      margin: 1.4mm 0 0 0;
+      margin: 1.2mm 0 0;
       padding-left: 4.5mm;
-      font-size: 8.9pt;
-      line-height: 1.4;
-      color: #2d3a48;
+      font-size: 8.6pt;
+      line-height: 1.45;
+      color: #374151;
+      list-style-type: "–  ";
     }
 
     .bullets li {
-      margin: 0.7mm 0;
+      margin: 0.6mm 0;
+      padding-left: 0.5mm;
     }
 
-    .tech-line,
-    .skills-line {
+    .bullets li::marker {
+      color: #0f766e;
+      font-weight: 700;
+    }
+
+    /* ── Tech tags ── */
+    .tech-line {
+      margin-top: 1.2mm;
+      font-size: 8.2pt;
+      color: #4b5563;
+      line-height: 1.45;
+    }
+
+    .tech-line strong {
+      color: #111827;
+      font-weight: 700;
+    }
+
+    .tag-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2mm;
+      margin-top: 1.2mm;
+    }
+
+    .tag-pill {
+      display: inline-block;
+      padding: 0.5mm 2.2mm;
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: #0f766e;
+      background: #ecfdf5;
+      border: 0.3mm solid #d1fae5;
+      border-radius: 1mm;
+      white-space: nowrap;
+    }
+
+    /* ── Project ── */
+    .project-desc {
       margin-top: 1mm;
-      font-size: 8.7pt;
+      font-size: 8.6pt;
       line-height: 1.45;
-      color: #314152;
+      color: #374151;
     }
 
-    .tech-line strong,
-    .skills-line strong {
-      color: #17212b;
-    }
-
-    .project-copy {
-      margin-top: 1.1mm;
-      font-size: 8.9pt;
-      line-height: 1.45;
-      color: #2d3a48;
-    }
-
+    /* ── Certificates grid ── */
     .cert-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5mm 8mm;
-      font-size: 9pt;
-      color: #2d3a48;
+      font-size: 8.6pt;
+      color: #374151;
     }
 
     .cert-item {
-      break-inside: avoid;
+      display: flex;
+      align-items: baseline;
+      gap: 1.5mm;
     }
 
     .cert-item::before {
-      content: "- ";
-      color: #5a6470;
+      content: "▸";
+      color: #0f766e;
+      font-size: 7pt;
+      flex-shrink: 0;
     }
 
+    /* ── Skills ── */
+    .skills-block {
+      margin-bottom: 1.5mm;
+    }
+
+    .skills-line {
+      font-size: 8.5pt;
+      line-height: 1.5;
+      color: #374151;
+    }
+
+    .skills-line strong {
+      color: #111827;
+      font-weight: 700;
+    }
+
+    /* ── Print / Screen ── */
     @media screen {
       body {
-        padding: 20px 0;
+        padding: 24px 0;
       }
 
       .page {
-        box-shadow: 0 18px 44px rgba(17, 24, 39, 0.12);
+        box-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.06),
+          0 20px 50px rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+      }
+    }
+
+    @media print {
+      html, body {
+        background: #ffffff;
+      }
+
+      .page {
+        box-shadow: none;
       }
     }
   </style>
 </head>
 <body>
   <main class="page">
+    <!-- ═══ HEADER ═══ -->
     <header class="header">
       <h1 class="name">Wassef ARAGOU</h1>
-      <div class="subtitle">Engineering Student in Modeling and Scientific Computing | Available from August 2026</div>
-      <div class="divider"></div>
-      <div class="contact-line">
-        Casablanca, Morocco &bull;
-        <a href="mailto:aragou.wassef@gmail.com">aragou.wassef@gmail.com</a> &bull;
-        <a href="tel:+212689212747">+212 689212747</a><br>
-        <a href="https://linkedin.com/in/WASSEF%20ARAGOU">linkedin.com/in/WASSEF ARAGOU</a> &bull;
-        <a href="https://github.com/wassefaragou">github.com/wassefaragou</a>
+      <div class="headline">Engineer in Modeling | Capital Markets &amp; Data Science</div>
+      <div class="contact-bar">
+        <span>Casablanca, Morocco</span>
+        <span class="sep">•</span>
+        <a href="mailto:aragou.wassef@gmail.com">aragou.wassef@gmail.com</a>
+        <span class="sep">•</span>
+        <a href="tel:+212689212747">+212 689 212 747</a>
+        <span class="sep">•</span>
+        <a href="https://linkedin.com/in/WASSEF%20ARAGOU" target="_blank" rel="noopener">linkedin.com/in/WASSEF ARAGOU</a>
+        <span class="sep">•</span>
+        <a href="https://github.com/wassefaragou" target="_blank" rel="noopener">github.com/wassefaragou</a>
       </div>
     </header>
 
+    <!-- ═══ EDUCATION ═══ -->
     <section class="section">
       <div class="section-title">Education</div>
 
-      <div class="education-item">
-        <div class="row">
-          <div class="school">Mohammadia School of Engineers</div>
-          <div class="date">2023 - 2026</div>
+      <div class="entry">
+        <div class="entry-row">
+          <div class="entry-org">Mohammadia School of Engineers</div>
+          <div class="entry-date">2023 – 2026</div>
         </div>
-        <div class="degree">
+        <div class="entry-role">
           <span>Engineering Degree in Modeling and Scientific Computing (MIS)</span>
-          <span class="location">Rabat</span>
+          <span class="entry-location">Rabat</span>
         </div>
       </div>
 
-      <div class="education-item">
-        <div class="row">
-          <div class="school">Preparatory Classes for Engineering Schools</div>
-          <div class="date">2021 - 2023</div>
+      <div class="entry">
+        <div class="entry-row">
+          <div class="entry-org">Preparatory Classes for Engineering Schools</div>
+          <div class="entry-date">2021 – 2023</div>
         </div>
-        <div class="degree">
+        <div class="entry-role">
           <span>Industrial Sciences and Technologies</span>
-          <span class="location">Safi</span>
-        </div>
-      </div>
-
-      <div class="education-item">
-        <div class="row">
-          <div class="school">Baccalaureate</div>
-          <div class="date">2020 - 2021</div>
-        </div>
-        <div class="degree">
-          <span>Electrical Sciences and Technologies</span>
-          <span class="location">Marrakech</span>
+          <span class="entry-location">Safi</span>
         </div>
       </div>
     </section>
 
+    <!-- ═══ PROFESSIONAL EXPERIENCE ═══ -->
     <section class="section">
       <div class="section-title">Professional Experience</div>
 
-      <div class="experience-item">
-        <div class="row">
-          <div class="company">ATTIJARIWAFA BANK - Equity &amp; Derivatives Desk (Final-Year Internship)</div>
-          <div class="date">FEB 2026 - MAY 2026</div>
+      <!-- Attijariwafa Bank -->
+      <div class="entry">
+        <div class="entry-row">
+          <div class="entry-org">ATTIJARIWAFA BANK – Equity &amp; Derivatives Desk (Final-Year Internship)</div>
+          <div class="entry-date">Feb 2026 – May 2026</div>
         </div>
         <ul class="bullets">
           <li>Designed a hedging strategy for a portfolio of MASI 20 futures contracts.</li>
-          <li>Built full and partial replication portfolios for the MASI 20, including estimates of free-float factors and capping coefficients.</li>
-          <li>Set up a valuation framework for MASI 20 futures contracts, including portfolio PnL calculation and monitoring.</li>
-          <li>Contributed to research on optimal bid and ask quote setting within a market-making framework.</li>
+          <li>Built full and partial replication portfolios for the MASI 20, including estimates of free-float factors and capping coefficients for constituent stocks.</li>
+          <li>Set up a valuation framework for MASI 20 futures contracts, integrating portfolio P&amp;L calculation and monitoring.</li>
+          <li>Contributed to research on optimal bid and ask quote setting within a market-making framework on MASI 20 futures.</li>
+          <li>Estimated trends for MASI 20 constituent stocks using machine-learning models.</li>
         </ul>
-        <div class="tech-line"><strong>Tools:</strong> Python, Quantitative Finance, Optimization, Metaheuristics, Yield Curve</div>
+        <div class="tag-pills">
+          <span class="tag-pill">Python</span>
+          <span class="tag-pill">Quantitative Finance</span>
+          <span class="tag-pill">Optimization</span>
+          <span class="tag-pill">Metaheuristics</span>
+          <span class="tag-pill">Yield Curve</span>
+          <span class="tag-pill">Market Making</span>
+          <span class="tag-pill">Machine Learning</span>
+        </div>
       </div>
 
-      <div class="experience-item">
-        <div class="row">
-          <div class="company">HIGH COMMISSION FOR PLANNING - Agdal, Rabat</div>
-          <div class="date"></div>
+      <!-- HCP -->
+      <div class="entry">
+        <div class="entry-row">
+          <div class="entry-org">HIGH COMMISSION FOR PLANNING – Agdal, Rabat</div>
+          <div class="entry-date"></div>
         </div>
 
-        <div class="role">
+        <div class="entry-role" style="margin-top:1mm">
           <span>Data Science and Modeling Internship</span>
-          <span class="location">JUL 2025 - AUG 2025</span>
+          <span class="entry-location">Jul 2025 – Aug 2025</span>
         </div>
         <ul class="bullets">
           <li>Applied unsupervised learning methods to analyze national employment surveys and designed a chatbot to present the main findings interactively.</li>
         </ul>
-        <div class="tech-line"><strong>Technologies:</strong> Python, PCA, Autoencoders, KNN, K-Means, DBSCAN, HDBSCAN, GMM, Hugging Face, LLM, Streamlit</div>
+        <div class="tag-pills">
+          <span class="tag-pill">Python</span>
+          <span class="tag-pill">PCA</span>
+          <span class="tag-pill">Autoencoders</span>
+          <span class="tag-pill">KNN</span>
+          <span class="tag-pill">K-Means</span>
+          <span class="tag-pill">DBSCAN</span>
+          <span class="tag-pill">HDBSCAN</span>
+          <span class="tag-pill">GMM</span>
+          <span class="tag-pill">Hugging Face</span>
+          <span class="tag-pill">LLM</span>
+          <span class="tag-pill">Streamlit</span>
+        </div>
 
-        <div class="role" style="margin-top: 2mm;">
+        <div class="entry-role" style="margin-top:2.5mm">
           <span>Predictive Analytics Internship</span>
-          <span class="location">JUL 2024 - AUG 2024</span>
+          <span class="entry-location">Jul 2024 – Aug 2024</span>
         </div>
         <ul class="bullets">
           <li>Developed predictive models to estimate youth employment status and studied the main factors behind youth unemployment.</li>
         </ul>
-        <div class="tech-line"><strong>Technologies:</strong> Python, Scikit-learn, Seaborn, Pandas</div>
+        <div class="tag-pills">
+          <span class="tag-pill">Python</span>
+          <span class="tag-pill">Logistic Regression</span>
+          <span class="tag-pill">Random Forest</span>
+          <span class="tag-pill">Neural Network</span>
+          <span class="tag-pill">Scikit-learn</span>
+          <span class="tag-pill">Pandas</span>
+        </div>
       </div>
     </section>
 
+    <!-- ═══ ACADEMIC PROJECT ═══ -->
     <section class="section">
       <div class="section-title">Academic Project</div>
-      <div class="project-item">
-        <div class="project-name">Integrated DAX Assistant in Power BI</div>
-        <div class="project-copy">
-          Developed a conversational assistant embedded in Power BI through HTML Content, connected to an LLM using the OpenAI API to generate context-aware DAX and to query SQL Server through a FastAPI back end for automated answers to data questions.
+      <div class="entry">
+        <div class="entry-org">Integrated DAX Assistant in Power BI</div>
+        <div class="project-desc">
+          Developed a conversational assistant embedded in Power BI through HTML Content, connected to an LLM using the OpenAI API to generate context-aware DAX queries and to query SQL Server through a FastAPI back end for automated answers to data questions.
         </div>
-        <div class="tech-line"><strong>Technologies:</strong> Power BI, SQL Server, FastAPI, HTML/CSS/JavaScript, OpenAI API, DAX, SQL</div>
+        <div class="tag-pills">
+          <span class="tag-pill">Power BI</span>
+          <span class="tag-pill">SQL Server</span>
+          <span class="tag-pill">FastAPI</span>
+          <span class="tag-pill">HTML / CSS / JavaScript</span>
+          <span class="tag-pill">OpenAI API</span>
+          <span class="tag-pill">DAX</span>
+          <span class="tag-pill">SQL</span>
+        </div>
       </div>
     </section>
 
+    <!-- ═══ CERTIFICATES ═══ -->
     <section class="section">
       <div class="section-title">Certificates</div>
       <div class="cert-grid">
-        <div class="cert-item">Machine Learning Specialization - Stanford University</div>
-        <div class="cert-item">Financial Markets - Yale University</div>
-        <div class="cert-item">Deep Learning Specialization - DeepLearning.AI</div>
+        <div class="cert-item">Machine Learning Specialization – Stanford University</div>
+        <div class="cert-item">Financial Markets – Yale University</div>
+        <div class="cert-item">Deep Learning Specialization – DeepLearning.AI</div>
         <div class="cert-item">Data Analysis for Lean Six Sigma</div>
       </div>
     </section>
 
+    <!-- ═══ SKILLS ═══ -->
     <section class="section">
       <div class="section-title">Additional Skills</div>
-      <div class="skills-line"><strong>Tools and Programming:</strong> Python, Power BI, IBM SPSS, Excel, Access, VBA, SQL Server, FastAPI, HTML/CSS/JavaScript</div>
-      <div class="skills-line"><strong>Finance:</strong> Equities, Bond Markets, Money Markets, Derivatives, Foreign Exchange, Asset Valuation, Futures, Hedging</div>
-      <div class="skills-line"><strong>Languages:</strong> English: Professional Proficiency, French: Professional Proficiency, Arabic: Native Language</div>
+
+      <div class="skills-block">
+        <div class="skills-line"><strong>Tools &amp; Programming:</strong> Python, Power BI, IBM SPSS, Excel, VBA, Access, SQL Server, FastAPI, HTML/CSS/JavaScript</div>
+      </div>
+
+      <div class="skills-block">
+        <div class="skills-line"><strong>Capital Markets:</strong> Equities, Bond Markets, Money Markets, Derivatives, Foreign Exchange, DCF, DDM, Portfolio Management, Asset Valuation, Technical &amp; Fundamental Analysis, Futures, Hedging</div>
+      </div>
+
+      <div class="skills-block">
+        <div class="skills-line"><strong>Languages:</strong> English – Professional Proficiency · French – Professional Proficiency · Arabic – Native Language</div>
+      </div>
     </section>
   </main>
 </body>
